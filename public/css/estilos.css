@@ -1,0 +1,24 @@
+#contenedor {
+    margin-top: 80px ;
+   
+    
+}
+#uno{
+    background-color: rgb(208, 208, 219);
+    padding:10px;
+}
+#dos{
+    padding-left:80px;
+}
+#tres{
+    border: 1px solid;
+    max-width: 300px;
+    font-size:small;
+}
+.cartas{
+    margin:5px;
+}
+#pie{
+    color:white;
+    background-color:black;
+}
