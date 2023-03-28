@@ -80,7 +80,7 @@ if (isset($_POST['registro'])) {
 
 
     }
-    header("Location:cuerpo.php");
+    header("Location:index.php");
     // if(count($errores)==0){
     //     echo"USUARIO VÁLIDO";
     // }

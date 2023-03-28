@@ -34,7 +34,7 @@ if (isset($_POST['login'])) {
         
 
     }
-    header("Location:cuerpo.php");
+    header("Location:index.php");
 }
 
 ?>
