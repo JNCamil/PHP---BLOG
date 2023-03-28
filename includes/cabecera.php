@@ -1,15 +1,19 @@
 <?php require_once("conexion.php"); ?>
+<?php require_once("help.php") ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./public/css/bootstrap.min.css">
     <link rel="stylesheet" href="./public/css/estilos.css">
-    <title> Blog de Videojuegos</title>
+    <title> Blog de Alumnos</title>
 </head>
+
 <body>
+
     <nav class="navbar navbar-expand-lg bg-primary fixed-top" data-bs-theme="dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">BLOG <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
@@ -24,23 +28,21 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
-                    </li>
-                   
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
-                    </li>
+                    <?php $categorias = verCategorias($bd);
+                    foreach ($categorias as $categoria): ?>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="categoria.php?id=<?php echo $categoria["id"]?>">
+                                <?php echo $categoria["nombre"] ?>
+                            </a>
+                        </li>
+
+                    <?php endforeach; ?>
+
                 </ul>
-                
+
             </div>
         </div>
     </nav>
     <div class="container-fluid" id="contenedor"><!-- INICIO CONTAINER PRINCIPAL-->
-    <div class="row g-0"><!--Inicio de fila -->
+        <div class="row "><!--Inicio de fila -->

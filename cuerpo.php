@@ -2,6 +2,7 @@
 
 
   
+  
     <div class="col-12 col-md-8 col-lg-9 align-self-start" id="uno">
       <h3>Últimas entradas del BLOG <span class="badge bg-success">New</span></h3>
 
