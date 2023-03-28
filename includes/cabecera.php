@@ -1,3 +1,4 @@
+<?php require_once("conexion.php"); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,4 +42,5 @@
             </div>
         </div>
     </nav>
-    
+    <div class="container-fluid" id="contenedor"><!-- INICIO CONTAINER PRINCIPAL-->
+    <div class="row g-0"><!--Inicio de fila -->

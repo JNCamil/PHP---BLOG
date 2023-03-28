@@ -1,24 +1,38 @@
+
+
+body {
+    background: url(../imagenes/cubes.png);
+}
+
 #contenedor {
-    margin-top: 80px ;
-   
-    
+    margin-top: 80px;
 }
-#uno{
+
+#uno {
     background-color: rgb(208, 208, 219);
-    padding:10px;
+    padding: 10px;
+   
 }
-#dos{
-    padding-left:80px;
+
+#dos {
+    padding:80px;    
 }
-#tres{
+
+.tres {
     border: 1px solid;
     max-width: 300px;
-    font-size:small;
+    font-size: small;
 }
-.cartas{
-    margin:5px;
+
+.cartas {
+    margin: 5px;
 }
-#pie{
-    color:white;
-    background-color:black;
+
+#pie {
+    color: white;
+    background-color: black;
+}
+.alerta{
+    margin:10px;
+    padding:8px;
 }
