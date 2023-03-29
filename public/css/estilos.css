@@ -6,6 +6,8 @@ body {
 
 #contenedor {
     margin-top: 80px;
+    margin-bottom:200px;
+    
 }
 
 #uno {
@@ -35,6 +37,7 @@ body {
 #pie {
     color: white;
     background-color: black;
+    
 }
 .alerta{
     margin:10px;

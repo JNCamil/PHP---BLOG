@@ -41,4 +41,19 @@ function verCategorias($bd){
  }
  return $resultado;
 }
+
+function verUltimasEntradas($bd){
+    $preparada=$bd->prepare("select e.*, c.nombre as categoria from entradas e
+                             inner join categorias c on e.categoria_id=c.id 
+                             order by e.fecha desc limit 4");
+    $preparada->execute();
+    $num_registros=$preparada->rowCount();
+    $resultado=array();
+    if($num_registros>=1){
+        $resultado=$preparada->fetchAll();
+    
+     }
+     return $resultado;
+
+}
 ?>

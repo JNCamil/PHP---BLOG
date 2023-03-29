@@ -9,12 +9,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./public/css/bootstrap.min.css">
     <link rel="stylesheet" href="./public/css/estilos.css">
+    <script src="./public/js/bootstrap.bundle.min.js"></script>
     <title> Blog de Alumnos</title>
 </head>
 
 <body>
 
-    <nav class="navbar navbar-expand-lg bg-primary fixed-top" data-bs-theme="dark">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top" data-bs-theme="dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">BLOG <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                     fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
@@ -27,17 +28,20 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <ul class="navbar-nav navbar-nav-scroll me-auto mb-2 mb-lg-0">
                     <?php $categorias = verCategorias($bd);
-                    foreach ($categorias as $categoria): ?>
+                    if (!empty($categorias)):
+                        foreach ($categorias as $categoria): ?>
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="categoria.php?id=<?php echo $categoria["id"]?>">
-                                <?php echo $categoria["nombre"] ?>
-                            </a>
-                        </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="categoria.php?id=<?php echo $categoria["id"] ?>">
+                                    <?php echo $categoria["nombre"] ?>
+                                </a>
+                            </li>
 
-                    <?php endforeach; ?>
+                        <?php endforeach;
+                    endif;
+                    ?>
 
                 </ul>
 
