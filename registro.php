@@ -6,7 +6,7 @@ if (isset($_POST['registro'])) {
         session_start();
     }
 
-    $nombre = isset($_POST['nombre']) ? $_POST['nombre'] : false;
+    $nombre = isset($_POST['nombre']) ? htmlspecialchars($_POST["nombre"], ENT_QUOTES, 'UTF-8'): false;
     $apellidos = isset($_POST['apellidos']) ? $_POST['apellidos'] : false;
     $email = isset($_POST['email']) ? trim($_POST['email']) : false;
     $password = isset($_POST['password']) ? $_POST['password'] : false;

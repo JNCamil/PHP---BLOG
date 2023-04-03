@@ -10,7 +10,10 @@ $options = array(
 $bd = new PDO('mysql:dbname=blog;host=localhost', $usuario, $password, $options);
 #Excepciones para cuando ocurra un error
 $bd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-session_start();
+if(!isset($_SESSION)){
+    session_start();
+
+}
 
 
 ?>
