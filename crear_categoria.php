@@ -15,7 +15,7 @@
             <form action="guardar_categoria.php" method="post">
                 <label for="nombre" class="form-label">Nombre de la categoría</label>
                 <input type="text" name="nombre" class="form-control"><br>
-
+                <?php echo isset($_SESSION["errores_categoria"]) ? mostrarError($_SESSION["errores_categoria"], "nombre") : ""; ?>
                 <button type="submit" class="btn btn-primary" name="guardar">Guardar</button>
             </form>
 

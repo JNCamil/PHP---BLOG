@@ -12,8 +12,10 @@
             <form action="guardar_entradas.php" method="post">
                 <label for="titulo" class="form-label">Título:</label>
                 <input type="text" name="titulo" class="form-control"><br>
+                <?php echo isset($_SESSION["errores_entrada"]) ? mostrarError($_SESSION["errores_entrada"], "titulo") : ""; ?>
                 <label for="descripcion" class="form-label">Descripción:</label>
                 <textarea name="descripcion" class="form-control"></textarea><br>
+                <?php echo isset($_SESSION["errores_entrada"]) ? mostrarError($_SESSION["errores_entrada"], "descripcion") : ""; ?>
                 <label for="categoria" class="form-label">Categoría: </label>
                 <select name="categoria">
                     <?php $categorias = verCategorias($bd);
@@ -27,10 +29,10 @@
                     endif; ?>
                 </select>
                 <br>
-
+                <?php echo isset($_SESSION["errores_entrada"]) ? mostrarError($_SESSION["errores_entrada"], "categoria") : ""; ?>
                 <button type="submit" class="btn btn-primary" name="guardar">Guardar</button>
             </form>
-
+            <?php borrarErrores(); ?>
 
         </div>
     </div>

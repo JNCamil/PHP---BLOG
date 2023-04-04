@@ -26,6 +26,12 @@ function borrarErrores()
     if (isset($_SESSION["completado"])) {
         unset($_SESSION["completado"]);
     }
+    if (isset($_SESSION["errores_entrada"])) {
+        unset($_SESSION["errores_entrada"]);
+    }
+    if (isset($_SESSION["errores_categoria"])) {
+        unset($_SESSION["errores_categoria"]);
+    }
 
 
 }

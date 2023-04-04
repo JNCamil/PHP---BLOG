@@ -30,10 +30,12 @@ if(isset($_POST)){
 
         $preparada=$bd->prepare("insert into categorias values (?, ?)");
         $preparada->execute(array("null",$nombre));
+        header("Location: index.php");
 
         
+    }else{
+        $_SESSION["errores_categoria"]=$errores;
+        header("Location: crear_categoria.php");
     }
-
-    header("Location: index.php");
 }
 ?>

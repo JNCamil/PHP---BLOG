@@ -34,12 +34,14 @@ if(isset($_POST)){
 
         $preparada=$bd->prepare("insert into entradas (usuario_id,categoria_id,titulo,descripcion,fecha) values (?,?,?,?,?)");
         $preparada->execute(array($usuario,$categoria,$titulo,$descripcion,$fecha_actual));
+        header("Location: index.php");
 
         
     }else{
         $_SESSION["errores_entrada"]=$errores;
+        header("Location: crear_entradas.php");
     }
 
-    header("Location: index.php");
+    
 }
 ?>
