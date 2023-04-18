@@ -57,7 +57,7 @@ function verUltimasEntradas($bd)
 {
     $preparada = $bd->prepare("select e.*, c.nombre as categoria from entradas e
                              inner join categorias c on e.categoria_id=c.id 
-                             order by e.fecha desc limit 4");
+                             order by e.fecha desc");
     $preparada->execute();
     $num_registros = $preparada->rowCount();
     $resultado = array();

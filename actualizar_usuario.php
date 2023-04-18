@@ -49,6 +49,7 @@ if (isset($_POST['modificar'])) {
         $preparadaEmail = $bd->prepare("select id, email from usuarios where email=?");
         $preparadaEmail->execute(array($email));
         $filaEmail=$preparadaEmail->fetch(PDO::FETCH_ASSOC);
+        
         if ($filaEmail["id"]==$id || empty($filaEmail)) {
             $preparada = $bd->prepare("update usuarios set nombre=?, apellidos=?, email=? where id=?");
             if ($preparada->execute(array($nombre, $apellidos, $email, $id))) {
