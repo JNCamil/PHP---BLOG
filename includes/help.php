@@ -17,6 +17,10 @@ function borrarErrores()
     if (isset($_SESSION["errores"]["login"])) {
         unset($_SESSION["errores"]["login"]);
     }
+    //ESTA OPCIÓN SI PRETENDO QUE LA VARIABLE SESSION["errores"]["login"] PERMANEZCA EN MI CÓDIGO
+    // if (isset($_SESSION["errores"]["login"])) {
+    //    $_SESSION["errores"]["login"]=null;
+    // }
     if (isset($_SESSION["errores"]["general"])) {
         unset($_SESSION["errores"]["general"]);
     }
