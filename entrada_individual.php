@@ -22,7 +22,7 @@
                 <?= $entrada_actual["categoria"] ?>
             </h6>
             <p class="card-text">
-                <?= $entrada_actual["descripción"] ?>
+                <?= $entrada_actual["descripcion"] ?>
             </p>
             <p class="card-text">
                 <?= $entrada_actual["fecha"] ?>
