@@ -1,18 +1,18 @@
-<?php require("./includes/cabecera.php") ?>
+<?php require_once("./includes/cabecera.php") ?>
 
 
 
 <div class="col-12 col-md-8 col-lg-9 align-self-start" id="uno">
-  <h3>Últimas entradas del BLOG <span class="badge bg-success">New</span></h3>
+  <h3>Todas las entradas del BLOG <span class="badge bg-success">New</span></h3>
 
-  <?php $entradas = verEntradas($bd, true);
+  <?php $entradas = verEntradas($bd);
   if (!empty($entradas)):
     foreach ($entradas as $entrada): ?>
 
       <div class="card cartas">
         <div class="card-body">
           <h4 class="card-title">
-          <a href="entrada_individual.php?id=<?= $entrada["id"] ?>" class="text-decoration-none link-dark">
+            <a href="entrada_individual.php?id=<?= $entrada["id"] ?>" class="text-decoration-none link-dark">
               <?php echo $entrada["titulo"] ?>
           </h4>
           <h6 class="card-subtitle mb-2 text-body-secondary">
@@ -29,10 +29,7 @@
   endif;
   ?>
 
-  <div class="container text-center">
-    <button type="button" class="btn btn-secondary"><a class="text-decoration-none link-light" href="entradas.php"> Ver
-        Todas las entradas</a></button>
-  </div>
+
 
 </div>
 <?php require_once("./includes/formularios.php") ?>

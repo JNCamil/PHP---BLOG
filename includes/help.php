@@ -53,11 +53,38 @@ function verCategorias($bd)
     return $resultado;
 }
 
-function verUltimasEntradas($bd)
+function verCategoria($bd, $id)
 {
-    $preparada = $bd->prepare("select e.*, c.nombre as categoria from entradas e
-                             inner join categorias c on e.categoria_id=c.id 
-                             order by e.fecha desc");
+    $preparada = $bd->prepare("select * from categorias where id=?");
+    $preparada->execute(array($id));
+    $num_registros = $preparada->rowCount();
+    $resultado=array();
+    if ($num_registros >= 1) {
+        $resultado = $preparada->fetch(PDO::FETCH_ASSOC);
+
+    }
+    return $resultado;
+}
+
+function verEntradas($bd, $limit=null, $categoria=null)
+{
+    $sql="select e.*, c.nombre as categoria from entradas e
+    inner join categorias c on e.categoria_id=c.id ";
+
+
+    if(!empty($categoria)){
+        $sql.="where e.categoria_id=$categoria ";
+    }
+
+    $sql.="order by e.fecha desc ";
+
+    if($limit){
+        $sql.="limit 4";
+    }
+   
+  
+    
+    $preparada = $bd->prepare($sql);
     $preparada->execute();
     $num_registros = $preparada->rowCount();
     $resultado = array();
@@ -68,4 +95,17 @@ function verUltimasEntradas($bd)
     return $resultado;
 
 }
+function verEntrada_individual($bd, $id)
+{
+    $preparada = $bd->prepare("select e.*, c.nombre as categoria from entradas e inner join categoria c on e.categoria_id=c.id where id=?");
+    $preparada->execute(array($id));
+    $num_registros = $preparada->rowCount();
+    $resultado=array();
+    if ($num_registros >= 1) {
+        $resultado = $preparada->fetch(PDO::FETCH_ASSOC);
+
+    }
+    return $resultado;
+}
+
 ?>

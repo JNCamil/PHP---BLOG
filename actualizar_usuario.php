@@ -45,14 +45,16 @@ if (isset($_POST['modificar'])) {
     if (empty($errores)) {
         $guardar_usuario = true;
         $id = $_SESSION["usuario"]["id"];
-        //Comprobar email usuario
+        //COMPROBAR SI EMAIL YA EXISTE, ya que al ser unique, tirará un PDOException
         $preparadaEmail = $bd->prepare("select id, email from usuarios where email=?");
         $preparadaEmail->execute(array($email));
         $filaEmail=$preparadaEmail->fetch(PDO::FETCH_ASSOC);
-        
-        if ($filaEmail["id"]==$id || empty($filaEmail)) {
+
+        if ($filaEmail["id"]==$id || empty($filaEmail)) {  //empty comprueba un rowcount() == 0
             $preparada = $bd->prepare("update usuarios set nombre=?, apellidos=?, email=? where id=?");
             if ($preparada->execute(array($nombre, $apellidos, $email, $id))) {
+
+                //Se actualizan los datos para el usuario
 
                 $_SESSION["usuario"]["nombre"] = $nombre;
                 $_SESSION["usuario"]["apellidos"] = $apellidos;
