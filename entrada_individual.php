@@ -18,9 +18,11 @@
             <h4 class="card-title">
                 <?= $entrada_actual["titulo"] ?>
             </h4>
-            <h6 class="card-subtitle mb-2 text-body-secondary">
-                <?= $entrada_actual["categoria"] ?>
-            </h6>
+            <a href="categoria.php?id=<?= $entrada_actual["categoria_id"] ?>" class="text-decoration-none link-light">
+                <h6 class="card-subtitle mb-2 text-body-secondary">
+                    <?= $entrada_actual["categoria"] ?>
+                </h6>
+            </a>
             <p class="card-text">
                 <?= $entrada_actual["descripcion"] ?>
             </p>

@@ -9,7 +9,7 @@
 
     <h3>Últimas entradas de
         <?= $categoria_actual['nombre'] ?> <span class="badge bg-success">New</span>
-    </h3>
+    </h3> 
 
     <?php $entradas = verEntradas($bd, null, $_GET['id']);
     if (!empty($entradas)):
