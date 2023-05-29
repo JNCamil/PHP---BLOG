@@ -25,13 +25,18 @@
             </a>
             <p class="card-text">
                 <?= $entrada_actual["descripcion"] ?>
-            </p>
-            <p class="card-text">
-                <?= $entrada_actual["fecha"] ?>
-            </p>
+            </p><br><br>
+            <footer class="blockquote-footer">
+                <?= $entrada_actual["fecha"].' | '. $entrada_actual['usuario']?>
+            </footer>
 
         </div>
     </div>
+<?php if(isset($_SESSION['usuario']) && $_SESSION['usuario']['id'] == $entrada_actual['usuario_id']): ?>
+<button type="button" class="btn btn-warning"><a href="editar_entrada.php" class="text-decoration-none link-light">Editar entrada</a></button>
+
+<button type="button" class="btn btn-danger"><a href="borrar_entrada.php" class="text-decoration-none link-light">Borrar entrada</a></button>
+<?php endif; ?>   
 
 </div>
 

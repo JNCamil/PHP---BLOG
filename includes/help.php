@@ -97,7 +97,11 @@ function verEntradas($bd, $limit=null, $categoria=null)
 }
 function verEntrada_individual($bd, $id)
 {
-    $preparada = $bd->prepare("select e.*, c.nombre as categoria from entradas e inner join categorias c on e.categoria_id=c.id where e.id=?");
+    $preparada = $bd->prepare("select e.*, c.nombre as categoria, CONCAT(u.nombre, ' ', u.apellidos) AS usuario
+    from entradas e 
+    inner join categorias c on e.categoria_id=c.id 
+    inner join usuarios u on e.usuario_id=u.id 
+    where e.id=?");
     $preparada->execute(array($id));
     $num_registros = $preparada->rowCount();
     $resultado=array();

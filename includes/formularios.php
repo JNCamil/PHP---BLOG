@@ -9,7 +9,7 @@
         <div class="card tres">
             <div class="card-body">
                 <h5 class="card-title">
-                    <?php echo "Hola " . $_SESSION['usuario']["nombre"] . " " . $_SESSION['usuario']["apellidos"]; ?>
+                    <?php echo "Hola " . strtoupper ($_SESSION['usuario']["nombre"] . " " . $_SESSION['usuario']["apellidos"]); ?>
                 </h5>
 
                 <p class="card-text">Esperemos que disfrute de su estadía.</p>
