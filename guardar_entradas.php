@@ -32,14 +32,30 @@ if(isset($_POST)){
     if(count($errores)==0){
         $fecha_actual = date("Y-m-d H:i:s"); #formato YYYY-MM-DD HH:mm:ss
 
+        if(isset($_GET['editar'])){ //FLAG DESDE URL
+        $entrada_id=$_GET['editar'];
+        $preparada=$bd->prepare("update entradas SET titulo=?, descripcion=?, categoria_id=? where id=?");
+        $preparada->execute(array($titulo,$descripcion,$categoria,$entrada_id));
+
+        }else{
         $preparada=$bd->prepare("insert into entradas (usuario_id,categoria_id,titulo,descripcion,fecha) values (?,?,?,?,?)");
         $preparada->execute(array($usuario,$categoria,$titulo,$descripcion,$fecha_actual));
+        }
+  
         header("Location: index.php");
 
         
     }else{
         $_SESSION["errores_entrada"]=$errores;
-        header("Location: crear_entradas.php");
+        //Si estamos editando y hay un error en EDITAR ENTRADA
+        if(isset($_GET['editar'])){
+           header("Location:editar_entrada.php?id=".$_GET['editar']);
+        }else{
+            //SI ESTAMOS EN CREAR CATEGORIA
+            header("Location:crear_entradas.php");
+
+        }
+        
     }
 
     
