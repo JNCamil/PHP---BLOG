@@ -66,7 +66,7 @@ function verCategoria($bd, $id)
     return $resultado;
 }
 
-function verEntradas($bd, $limit=null, $categoria=null)
+function verEntradas($bd, $limit=null, $categoria=null, $busqueda=null)
 {
     $sql="select e.*, c.nombre as categoria from entradas e
     inner join categorias c on e.categoria_id=c.id ";
@@ -74,6 +74,10 @@ function verEntradas($bd, $limit=null, $categoria=null)
 
     if(!empty($categoria)){
         $sql.="where e.categoria_id=$categoria ";
+    }
+
+    if(!empty($busqueda)){
+        $sql.="where e.titulo LIKE '%$busqueda%'";
     }
 
     $sql.="order by e.fecha desc ";
@@ -111,5 +115,6 @@ function verEntrada_individual($bd, $id)
     }
     return $resultado;
 }
+
 
 ?>

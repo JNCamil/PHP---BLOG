@@ -44,6 +44,10 @@
                     ?>
 
                 </ul>
+        <form action="buscar.php" class="d-flex" role="search" method="post">
+        <input name="busqueda" class="form-control me-2 bg-light" type="search" placeholder="Buscar" aria-label="Search">
+        <button class="btn btn-secondary" type="submit">Buscar</button>
+      </form>
 
             </div>
         </div>
